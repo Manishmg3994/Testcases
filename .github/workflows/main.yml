@@ -45,10 +45,6 @@ jobs:
           distribution: 'adopt'  # Specify the JDK distribution
           java-version: '8'
 
-      - name: Set up Android SDK
-        uses: android-actions/setup-android@v2
-        with:
-          sdk-platform: '30'
 
       - name: Create and Start Emulator
         run: |
