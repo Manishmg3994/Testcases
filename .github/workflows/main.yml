@@ -46,10 +46,10 @@ jobs:
           java-version: '8'
 
 
-      - name: Set up Android SDK
-        uses: android-actions/setup-android@v2
-        with:
-          sdk-platform: 'platforms;android-30'
+      # - name: Set up Android SDK
+      #   uses: android-actions/setup-android@v2
+      #   with:
+      #     sdk-platform: 'platforms;android-30'
 
       - name: Install Emulator
         run: |
