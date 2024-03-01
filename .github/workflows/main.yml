@@ -62,8 +62,9 @@ jobs:
       #     model: 'iPhone 8'
       
      
-      - uses: malinskiy/action-android/emulator-run-cmd@release/0.1.3
+      - uses: malinskiy/action-android/emulator-run-cmd@release/0.1.6
         with:
+          cmd: -no-snapshot-save -noaudio -no-boot-anim
           api: 25
           tag: default
           abi: x86
