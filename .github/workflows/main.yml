@@ -40,7 +40,7 @@ jobs:
           
 
       - name: Android Emulator 
-        run: emulator -list-avds
+        run: emulator --list-avds
 
       # - name: Create Android emulator
       #   run: avdmanager create avd -n emulator -k "system-images;android-30;google_apis;x86_64" --force
