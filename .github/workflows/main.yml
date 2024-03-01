@@ -29,7 +29,6 @@ jobs:
       - name: Run Android Emulator
         uses: reactivecircus/android-emulator-runner@v2
         with:
-          os: macos-11
           api-level: 31
           target: google_apis
           arch: arm64-v8a
@@ -43,3 +42,5 @@ jobs:
           disable-linux-hw-accel: auto
           enable-hw-keyboard: false
           channel: stable
+          script: |
+              echo "running"
