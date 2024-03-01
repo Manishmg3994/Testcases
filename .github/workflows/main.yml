@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  testsweets_tests: 
+  testsweets_tests:  
     runs-on: macos-14 # use macos-14 insted of macos-latest-large as that is based on M1 (  https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners/about-github-hosted-runners#:~:text=N/A-,macOS,N/A,-Standard%20GitHub%2Dhosted ) 
 
     # outputs:
