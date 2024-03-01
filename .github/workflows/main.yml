@@ -27,8 +27,7 @@ jobs:
 
       - name: Check Flutter version
         run: flutter doctor -v
-      - name: Accept Flutter and Android licenses
-        run: yes | flutter doctor --android-licenses
+      
       - name: Get all packages Flutter
         run: flutter pub get
       - name: Flutter Build debug APK
