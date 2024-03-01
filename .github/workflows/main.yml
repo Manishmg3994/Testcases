@@ -46,7 +46,6 @@ jobs:
       
       - name: Install Android SDK
         run: |
-          brew uninstall java
           brew install java8
           touch ~/.android/repositories.cfg
           brew install android-sdk
