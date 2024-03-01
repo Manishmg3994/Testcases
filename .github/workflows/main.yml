@@ -39,17 +39,20 @@ jobs:
       
           
        # Create AVD and start emulator
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v2
+        with:
+          sdk-platform: '30'
+
       - name: Create and Start Emulator
         run: |
           echo "no" | $ANDROID_HOME/tools/bin/avdmanager create avd --name test_emulator --package "system-images;android-30;google_apis_playstore;x86"
           emulator -avd test_emulator -no-window -accel on
 
-      # Wait for emulator to boot up
       - name: Wait for Emulator to Boot
         run: |
           adb wait-for-device shell 'while [[ -z $(getprop sys.boot_completed) ]]; do sleep 1; done'
 
-      # List connected devices
       - name: List Connected Devices
         run: adb devices
         
