@@ -51,14 +51,26 @@ jobs:
       #   with:
       #     sdk-platform: 'platforms;android-30'
 
-      - name: Install Emulator
+      - name: Run Android Emulator
         uses: reactivecircus/android-emulator-runner@v2
         with:
-          # script: ./gradlew connectedCheck
           os: macos-14
           api-level: 31
           target: google_apis
           arch: arm64-v8a
+          cores: 2
+          avd-name: test
+          force-avd-creation: true
+          emulator-boot-timeout: 600
+          emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim
+          disable-animations: true
+          disable-spellchecker: false
+          disable-linux-hw-accel: auto
+          enable-hw-keyboard: false
+          channel: stable
+          script: |
+            # Add your script commands here
+            echo "Emulator started successfully"
 
       # - name: Create Android emulator
       #   run: avdmanager create avd -n emulator -k "system-images;android-30;google_apis;x86_64" --force
