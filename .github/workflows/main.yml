@@ -46,26 +46,26 @@ jobs:
           java-version: '8'
 
 
-      - name: Create and Start Emulator
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v2
+        with:
+          sdk-platform: 'platforms;android-30'
+
+      - name: Install Emulator
         run: |
-          echo "no" | $ANDROID_HOME/tools/bin/avdmanager create avd --name test_emulator --package "system-images;android-30;google_apis_playstore;x86"
-          emulator -avd test_emulator -no-window -accel on
+          echo "y" | sdkmanager --install "emulator"
+          echo "y" | sdkmanager --install "platform-tools"
+          echo "y" | sdkmanager --install "system-images;android-30;google_apis_playstore;x86"
+          echo "no" | avdmanager create avd --name test_emulator --package "system-images;android-30;google_apis_playstore;x86"
+
+      - name: Start Emulator
+        run: emulator -avd test_emulator -no-window -accel on
 
       - name: Wait for Emulator to Boot
-        run: |
-          adb wait-for-device shell 'while [[ -z $(getprop sys.boot_completed) ]]; do sleep 1; done'
+        run: adb wait-for-device shell 'while [[ -z $(getprop sys.boot_completed) ]]; do sleep 1; done'
 
       - name: List Connected Devices
         run: adb devices
-        
-      - name: Android Emulator 
-        run: |
-          avd_list=$(emulator -list-avds)
-          if [ -z "$avd_list" ]; then
-            echo "No emulators found."
-          else
-            echo "$avd_list"
-          fi
 
       # - name: Create Android emulator
       #   run: avdmanager create avd -n emulator -k "system-images;android-30;google_apis;x86_64" --force
