@@ -65,9 +65,7 @@ jobs:
       #   with:
       #     model: 'iPhone 8'
       
-      - name: TestSweets Authenticate
-        run: testsweets authenticate -e ${{ secrets.TESTSWEETS_EMAIL_ACCOUNT }} -p ${{ secrets.TESTSWEETS_PASSWORD }}
-
+     
       - uses: malinskiy/action-android/emulator-run-cmd@release/0.1.3
         with:
           cmd: testsweets run -p qA5ua2TOgxBtMGcSVBGE -a build/app/outputs/flutter-apk/app-debug.apk
