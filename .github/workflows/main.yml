@@ -46,11 +46,10 @@ jobs:
       
       - name: Install Android SDK
         run: |
-          brew cask uninstall java
-          brew tap homebrew/cask-versions
-          brew cask install java8
+          brew uninstall java
+          brew install java8
           touch ~/.android/repositories.cfg
-          brew install --cask android-sdk
+          brew install android-sdk
           
 
       # - name: Accept Android licenses
