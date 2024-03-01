@@ -39,8 +39,8 @@ jobs:
       
           
 
-      # - name: Accept Android licenses
-      #   run: yes | sdkmanager --licenses
+      - name: Android Emulator 
+        run: emulator -list-avds
 
       # - name: Create Android emulator
       #   run: avdmanager create avd -n emulator -k "system-images;android-30;google_apis;x86_64" --force
@@ -61,13 +61,8 @@ jobs:
       #   with:
       #     model: 'iPhone 8'
       
-     
-      - uses: malinskiy/action-android/emulator-run-cmd@release/0.1.6
-        with:
-          cmd: -no-snapshot-save -noaudio -no-boot-anim
-          api: 25
-          tag: default
-          abi: x86
+
+        
 
       # - name: Run TestSweets Tests
       #   run: testsweets run -p qA5ua2TOgxBtMGcSVBGE -a build/app/outputs/flutter-apk/app-debug.apk
